@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- inherit from the material theme -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light">
+        <!-- Main theme colors -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/primary</item>
+        <item name="android:textColorPrimary">@color/text_action_bar</item>
+    </style>
+</resources>
