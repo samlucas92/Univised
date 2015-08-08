@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void button2Click(View view)
+    public void searchButtonClick(View view)
     {
         // Do something in response to the button
         Intent intent = new Intent(this, ViewUniversity.class);
         startActivity(intent);
     }
+
 }

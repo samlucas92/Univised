@@ -18,7 +18,6 @@
             android:padding="7dp"
             android:background="@drawable/edittext"
             android:layout_gravity="center"
-            android:text="Search for a university or city"
             android:layout_marginStart="31dp"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
@@ -28,15 +27,108 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_search_black_24dp"
-            android:id="@+id/button4"
+            android:id="@+id/searchButton"
+            android:onClick="searchButtonClick"
             android:layout_gravity="center"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/editText" />
     </RelativeLayout>
 
-    <FrameLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="229dp"></FrameLayout>
+        android:layout_height="258dp"
+        >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:weightSum="1"
+        >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Browse by subject:"
+                android:id="@+id/textView"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="4dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="MATHEMATICS"
+                android:background="@color/accent"
+                android:textColor="@color/text_accent"
+                android:id="@+id/button2"
+                android:textSize="12sp"
+                android:layout_weight="3.84" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="SCIENCE"
+                android:background="#2ecc71"
+                android:textColor="@color/text_accent"
+                android:layout_weight="3.96"
+                android:id="@+id/button" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="ENGLISH"
+                android:background="#2c3e50"
+                android:textColor="@color/text_accent"
+                android:layout_weight="3.18"
+                android:id="@+id/button6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="HISTORY"
+                android:background="#8e44ad"
+                android:textColor="@color/text_accent"
+                android:layout_weight="1.60"
+                android:id="@+id/button3" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="GEOGRAPHY"
+                android:background="#e74c3c"
+                android:textColor="@color/text_accent"
+                android:layout_weight="1.64"
+            />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="PSYCHOLOGY"
+                android:background="#f39c12"
+                android:textColor="@color/text_accent"
+                android:id="@+id/button5"
+                android:layout_weight="1.21" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -49,7 +141,7 @@
             android:drawableStart="@drawable/ic_create_black_36dp"
             android:text="@string/action_write_review"
             android:textSize="24sp"
-            android:background="none"
+            android:background="@drawable/border"
             android:id="@+id/writeReviewButton" />
 
         <Button
@@ -58,6 +150,7 @@
             android:drawableStart="@drawable/ic_favorite_black_36dp"
             android:text="@string/action_favourites"
             android:textSize="24sp"
+            android:background="@drawable/border"
             android:id="@+id/favouritesButton" />
 
         <Button
@@ -66,6 +159,7 @@
             android:drawableStart="@drawable/ic_settings_black_36dp"
             android:text="@string/action_settings"
             android:textSize="24sp"
+            android:background="@drawable/border"
             android:id="@+id/settingsButton"
         />
     </LinearLayout>
