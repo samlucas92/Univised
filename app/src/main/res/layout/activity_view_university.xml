@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.mal.univised.ViewUniversity"
+
     android:weightSum="1">
 
     <FrameLayout
@@ -16,8 +16,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Swansea University"
-            android:id="@+id/textView2"
+            android:textSize="25dp"
+            android:id="@+id/universityName"
             android:layout_marginLeft="4dp" />
     </FrameLayout>
 
@@ -31,7 +31,7 @@
         <ImageView
             android:layout_width="253dp"
             android:layout_height="210dp"
-            android:background="@drawable/swansea_uni"
+            android:background="@drawable/no_image"
             android:id="@+id/imageView" />
 
         <LinearLayout
@@ -50,8 +50,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="387 Reviews"
-                    android:id="@+id/textView3"
+                    android:text="0 Reviews"
+                    android:id="@+id/reviewCount"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/text_accent"
                     android:layout_marginTop="4dp" />
@@ -66,8 +66,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="8.2"
-                        android:id="@+id/textView4"
+                        android:text="0"
+                        android:id="@+id/rating"
                         android:textSize="36sp"
                         android:textColor="@color/text_accent" />
 
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bordernone"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:drawableRight="@drawable/ic_thumb_up_black_24dp"
+                    android:drawableRight="@drawable/ic_favorite_black_24dp"
                     android:text="Save"
                     android:id="@+id/textView6" />
 
@@ -135,7 +135,7 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="2"
+        android:columnCount="4"
         android:rowCount="4"
         android:weightSum="1"
         android:layout_marginTop="4dp">
@@ -155,11 +155,12 @@
                 android:layout_marginLeft="4dp" />
 
             <RatingBar
-                android:id="@+id/ratingBar"
+                android:id="@+id/COLRating"
                 style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="65dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp" />
+                android:layout_marginLeft="4dp"
+                android:numStars="5"/>
         </LinearLayout>
 
         <LinearLayout
@@ -177,10 +178,11 @@
 
             <RatingBar
                 style="?android:attr/ratingBarStyleSmall"
-                android:id="@+id/ratingBar2"
-                android:layout_width="64dp"
+                android:id="@+id/nightLifeStars"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp" />
+                android:layout_marginLeft="35dp"
+                android:numStars="5"/>
         </LinearLayout>
 
         <LinearLayout
@@ -198,9 +200,11 @@
 
             <RatingBar
                 style="?android:attr/ratingBarStyleSmall"
-                android:id="@+id/ratingBar3"
-                android:layout_width="65dp"
-                android:layout_height="wrap_content" />
+                android:id="@+id/SURating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:numStars="5"/>
         </LinearLayout>
 
         <LinearLayout
@@ -218,9 +222,10 @@
 
             <RatingBar
                 style="?android:attr/ratingBarStyleSmall"
-                android:id="@+id/ratingBar4"
-                android:layout_width="66dp"
+                android:id="@+id/LecturerRating"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:numStars="5"
                 android:layout_marginLeft="31dp" />
         </LinearLayout>
 
@@ -241,10 +246,11 @@
 
             <RatingBar
                 style="?android:attr/ratingBarStyleSmall"
-                android:id="@+id/ratingBar5"
-                android:layout_width="65dp"
+                android:id="@+id/AccomRating"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp" />
+                android:layout_marginLeft="4dp"
+                android:numStars="5"/>
         </LinearLayout>
 
         <LinearLayout
@@ -263,9 +269,10 @@
 
             <RatingBar
                 style="?android:attr/ratingBarStyleSmall"
-                android:id="@+id/ratingBar6"
-                android:layout_width="64dp"
+                android:id="@+id/SportRating"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:numStars="5"
                 android:layout_marginLeft="63dp" />
         </LinearLayout>
 
@@ -285,9 +292,10 @@
 
             <RatingBar
                 style="?android:attr/ratingBarStyleSmall"
-                android:id="@+id/ratingBar8"
-                android:layout_width="65dp"
+                android:id="@+id/FacilRating"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:numStars="5"
                 android:layout_marginLeft="38dp" />
         </LinearLayout>
 
@@ -307,9 +315,10 @@
 
             <RatingBar
                 style="?android:attr/ratingBarStyleSmall"
-                android:id="@+id/ratingBar7"
-                android:layout_width="65dp"
+                android:id="@+id/SocietRating"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:numStars="5"
                 android:layout_marginLeft="40dp" />
         </LinearLayout>
 
@@ -318,8 +327,23 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="19dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/rev_div"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/test"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.09" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -330,80 +354,68 @@
             android:layout_weight="0.09"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="1dp"
-            android:layout_marginLeft="4dp" />
-    </LinearLayout>
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="3dp" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp">
+        android:text="No Reviews Found"
 
-        <!-- A CardView that contains a TextView -->
-        <android.support.v7.widget.CardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="119dp"
-            card_view:cardCornerRadius="8dp">
+        android:visibility="gone" />
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/info_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="&quot;Amazing Student Union!&quot;"
-                    android:layout_marginLeft="4dp" />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="djones1991"
-                        android:id="@+id/textView18" />
-
-                    <RatingBar
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:id="@+id/ratingBar9"
-                        android:layout_width="65dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Swansea University is a great univeristy, great lecturers, a very active student union, and it&apos;s right next to the beach  which is nice when the weather is nice (which is quite rare!)"
-                    android:id="@+id/textView19"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="6dp" />
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:layout_below="@+id/button"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignLeft="@+id/textview"
+        android:layout_alignStart="@+id/textview"
+        android:layout_alignParentBottom="true" />
     </LinearLayout>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="SEE MORE"
-        android:drawableBottom="@drawable/ic_keyboard_arrow_down_black_18dp"
-        android:id="@+id/button8"
-        android:background="@drawable/bordernone"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp" />
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:id="@+id/reviewRows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/reviewID"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+            </ListView>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <!--    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SEE MORE"
+            android:drawableBottom="@drawable/ic_keyboard_arrow_down_black_18dp"
+            android:id="@+id/button8"
+            android:background="@drawable/bordernone"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>-->
 
 </LinearLayout>

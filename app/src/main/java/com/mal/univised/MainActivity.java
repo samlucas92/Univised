@@ -1,18 +1,23 @@
 package com.mal.univised;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    TextView search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BLL bll = new BLL(this);
     }
 
     @Override
@@ -40,8 +45,17 @@ public class MainActivity extends AppCompatActivity {
     public void searchButtonClick(View view)
     {
         // Do something in response to the button
-        Intent intent = new Intent(this, ViewUniversity.class);
+        Intent intent = new Intent(this, SearchActivity.class);
+        search = (TextView)findViewById(R.id.searchText);
+        intent.putExtra("searchQuery",search.getText().toString());
         startActivity(intent);
     }
+    public void revButtonClick(View view){
+        Intent intent = new Intent(this,NewReview.class);
+        startActivity(intent);
+    }
+
+
+
 
 }

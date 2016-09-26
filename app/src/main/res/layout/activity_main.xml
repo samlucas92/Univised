@@ -14,7 +14,7 @@
         <EditText
             android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/searchText"
             android:padding="7dp"
             android:background="@drawable/edittext"
             android:layout_gravity="center"
@@ -31,7 +31,7 @@
             android:onClick="searchButtonClick"
             android:layout_gravity="center"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/editText" />
+            android:layout_toEndOf="@+id/searchText" />
     </RelativeLayout>
 
     <LinearLayout
@@ -140,6 +140,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_create_black_36dp"
             android:text="@string/action_write_review"
+            android:onClick="revButtonClick"
             android:textSize="24sp"
             android:background="@drawable/border"
             android:id="@+id/writeReviewButton" />

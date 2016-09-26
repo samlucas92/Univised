@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mal.univised" >
 
-    <uses-permission android:name="ANDROID.PERMISSION.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -25,6 +26,22 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mal.univised.MainActivity" />
+        </activity>
+        <activity
+            android:name=".NewReview"
+            android:label="Univised"
+            android:parentActivityName=".NewReview" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mal.univised.NewReview" />
+        </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="Univised"
+            android:parentActivityName=".SearchActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mal.univised.SearchActivity" />
         </activity>
     </application>
 
