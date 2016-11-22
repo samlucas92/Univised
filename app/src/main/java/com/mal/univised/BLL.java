@@ -54,7 +54,7 @@ public class BLL extends SQLiteOpenHelper {
     private static BLL databaseHelper;
     public BLL(Context context){
 
-        super(context, "application.db", null, 4);
+        super(context, "application.db", null, 5);
         this.myContext = context;
 
     }
@@ -242,7 +242,9 @@ public class BLL extends SQLiteOpenHelper {
                 {"University of the West of England","Bristol","www.uwe.ac.uk"},
                 {"University of the West of Scotland","Paisley","www.uws.ac.uk"},
                 {"University of Wales","Cardiff","www.wales.ac.uk"},
-                {"University of Wales Trinity Saint David","Carmarthen","www.uwtsd.ac.uk"},
+                {"University of Wales Trinity Saint David (Camarthen)","Carmarthen","www.uwtsd.ac.uk"},
+                {"University of Wales Trinity Saint David (Swansea)","Swansea","www.uwtsd.ac.uk"},
+                {"University of Wales Trinity Saint David (Lampeter)","Lampeter","www.uwtsd.ac.uk"},
                 {"University of West London","Ealing","www.uwl.ac.uk"},
                 {"University of Westminster","London","www.westminster.ac.uk"},
                 {"University of Wolverhampton","Wolverhampton","www.wlv.ac.uk"},
@@ -300,6 +302,7 @@ public class BLL extends SQLiteOpenHelper {
                     contactMap.put("rankId", cursor.getString(0));
                     contactMap.put("name", cursor.getString(1));
                     contactMap.put("location", cursor.getString(2));
+                    contactMap.put("image", "@+id/" + cursor.getString(0));
                     uniList.add(contactMap);
 
                 } while(cursor.moveToNext());
@@ -317,7 +320,7 @@ public class BLL extends SQLiteOpenHelper {
         ArrayList<HashMap<String, String>> results = new ArrayList<HashMap<String, String>>();
         SQLiteDatabase database = this.getWritableDatabase();
 
-        String leaderQuery = "SELECT id, name, location FROM universities Where name LIKE '%" + searchQuery + "%'";
+        String leaderQuery = "SELECT id, name, location FROM universities Where name LIKE '%" + searchQuery + "%' OR location LIKE '%" + searchQuery + "%'";
         try
         {
 
@@ -332,6 +335,7 @@ public class BLL extends SQLiteOpenHelper {
                     contactMap.put("rankId", cursor.getString(0));
                     contactMap.put("name", cursor.getString(1));
                     contactMap.put("location", cursor.getString(2));
+                    contactMap.put("image", "@drawable/u" + cursor.getString(0));
                     results.add(contactMap);
 
                 } while(cursor.moveToNext());
@@ -344,6 +348,36 @@ public class BLL extends SQLiteOpenHelper {
         }
         database.close();
         return results;
+    }
+    public int dbCount(){
+        ArrayList<HashMap<String, String>> results = new ArrayList<HashMap<String, String>>();
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        String leaderQuery = "SELECT id, name, location FROM universities";
+        HashMap<String, String> contactMap = new HashMap<String, String>();
+        try
+        {
+            Cursor cursor = database.rawQuery(leaderQuery,null);
+            if(cursor.moveToFirst()){
+
+                do{
+
+
+                    contactMap.put("rankId", cursor.getString(0));
+                    contactMap.put("name", cursor.getString(1));
+                    contactMap.put("location", cursor.getString(2));
+                    contactMap.put("image", "@drawable/u" + cursor.getString(0));
+                    results.add(contactMap);
+
+                } while(cursor.moveToNext());
+
+
+            }
+        }
+        catch(Exception e){
+            Log.e("ERROR", e.toString());
+        }
+        return 151;// contactMap.size();
     }
     public ArrayList<HashMap<String,String>> getUniByID(String searchQuery){
         ArrayList<HashMap<String, String>> results = new ArrayList<HashMap<String, String>>();

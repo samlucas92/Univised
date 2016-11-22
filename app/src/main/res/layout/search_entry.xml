@@ -3,9 +3,11 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:onClick="resultButtonClick"
-    android:paddingBottom="4dp"
-    >
-    <!---->
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip">
+
+
     <TextView
         android:id="@+id/Id"
         android:layout_width="fill_parent"
@@ -21,24 +23,47 @@
         android:textStyle="bold"
         android:visibility="gone"
         />
-    <TextView
-        android:id="@+id/name"
+    <RelativeLayout>
+        <LinearLayout android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="#000"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/image_bg"
+        android:layout_marginRight="5dip">
+        <ImageView
+            android:id="@+id/imageuni"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/no_image"/>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="#000"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:layout_alignTop="@+id/thumbnail"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:text="Test"
+            android:textSize="15dip"
+            android:textStyle="bold"/>
 
-
-
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:textColor="#343434"
+            android:textSize="10dip"
+            android:text="Test"
+            android:layout_marginTop="1dip"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/testingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+    </RelativeLayout>
 </TableRow>

@@ -11,4 +11,5 @@
     <color name="background_tint">#E4E4E4</color>
     <color name="background_main">#F1F1F1</color>
     <color name="rev_div">#d8d8d8</color>
+    <color name="featuredText">#00E676</color>
 </resources>

@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">Univised</string>
+    <string name="app_name">Univise</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_write_review">Write a Review</string>
     <string name="action_favourites">Favourites</string>
 
     <string name="title_activity_view_university">ViewUniversity</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -8,26 +8,26 @@ import android.widget.ArrayAdapter;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+/**
+ * Created by samlucas on 03/10/2016.
+ */
+public class CustomSearchList extends ArrayAdapter<String> {
+private String[] ids;
+private String[] name;
+private String[] location;
+private String[] imgID;
+private String[] rating;
+private Activity context;
 
-public class CustomList extends ArrayAdapter<String> {
-    private String[] ids;
-    private String[] title;
-    private String[] first;
-    private String[] last;
-    private String[] body;
-    private String [] review;
-    private Activity context;
-
-    public CustomList(Activity context, String[] ids, String[] title, String[] first, String[] last, String[] body, String[] review) {
+public CustomSearchList(Activity context, String[] ids, String[] name, String[] location, String[] imgID, String[] rating) {
         super(context, R.layout.list_view_layout, ids);
         this.context = context;
         this.ids = ids;
-        this.title = title;
-        this.first = first;
-        this.last = last;
-        this.body = body;
-        this.review = review;
-    }
+        this.name = name;
+        this.location = location;
+        this.imgID = imgID;
+        this.rating = rating;
+        }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -40,10 +40,10 @@ public class CustomList extends ArrayAdapter<String> {
         RatingBar reviewRating = (RatingBar) listViewItem.findViewById(R.id.revRating);
 
         textViewId.setText(ids[position]);
-        textViewName.setText(title[position]);
-        textViewAuthor.setText(first[position] + " " + last[position]);
-        textViewBody.setText(body[position]);
-        reviewRating.setRating(Float.parseFloat(review[position]));
+        textViewName.setText(name[position]);
+        textViewAuthor.setText(location[position]);
+        textViewBody.setText(imgID[position]);
+        reviewRating.setRating(Float.parseFloat(rating[position]));
 
         return listViewItem;
     }

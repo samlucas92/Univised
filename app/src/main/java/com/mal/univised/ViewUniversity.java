@@ -19,7 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-public class ViewUniversity extends AppCompatActivity{
+public class ViewUniversity extends Activity{
     BLL bll = new BLL(this);
     TextView uniName, uniScore, warning, count;
     TableRow tr;
@@ -71,7 +71,7 @@ public class ViewUniversity extends AppCompatActivity{
         parseJSON pj = new parseJSON(json);
         pj.parseJSON();
         count.setText(parseJSON.count + " Reviews");
-        CustomList cl = new CustomList(this, parseJSON.ids,parseJSON.title,parseJSON.first, parseJSON.last);
+        CustomList cl = new CustomList(this, parseJSON.ids,parseJSON.title,parseJSON.first, parseJSON.last, parseJSON.body, parseJSON.rating);
         listView.setAdapter(cl);
     }
 

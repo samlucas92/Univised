@@ -27,11 +27,12 @@ public class SearchActivity extends ListActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_search);
         BLL.getInstance(this.getApplicationContext());
         Bundle bundle = getIntent().getExtras();
         String searchQuery = bundle.getString("searchQuery");
+        search = (TextView) findViewById(R.id.searchText);
+        search.setText(searchQuery);
         ArrayList<HashMap<String, String>> searchRes =  bll.searchResults(searchQuery);
         createLeader(searchRes);
 
@@ -47,8 +48,8 @@ public class SearchActivity extends ListActivity {
 
         warning = (TextView)findViewById(R.id.warning);
         if(leaderList.size()!=0) {
-            ListAdapter adapter = new SimpleAdapter( SearchActivity.this,leaderList, R.layout.search_entry, new String[] {
-                    "rankId","name"}, new int[] {R.id.rankId,R.id.name});
+            SimpleAdapter adapter = new SimpleAdapter( SearchActivity.this,leaderList, R.layout.search_entry, new String[] {
+                    "rankId","name","location"}, new int[] {R.id.rankId,R.id.name,R.id.location});
             setListAdapter(adapter);
             tr.setVisibility(View.VISIBLE);
             warning.setVisibility(View.GONE);
@@ -56,7 +57,6 @@ public class SearchActivity extends ListActivity {
             tr.setVisibility(View.GONE);
             warning.setVisibility(View.VISIBLE);
         }
-
     }
     public void resultButtonClick(View view)
     {
@@ -65,7 +65,6 @@ public class SearchActivity extends ListActivity {
         String idString = id.getText().toString();
 
         Intent intent = new Intent(this, ViewUniversity.class);
-        //System.out.println("ID?: " + idString);
         intent.putExtra("selected",idString);
         startActivity(intent);
     }

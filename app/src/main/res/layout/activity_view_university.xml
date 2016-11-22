@@ -364,23 +364,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-
     </LinearLayout>
-
-
-    <!--    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SEE MORE"
-            android:drawableBottom="@drawable/ic_keyboard_arrow_down_black_18dp"
-            android:id="@+id/button8"
-            android:background="@drawable/bordernone"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp" />
-    </LinearLayout>-->
-
 </LinearLayout>
