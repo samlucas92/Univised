@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void revButtonClick(View view){
-        Intent intent = new Intent(this,NewReview.class);
+        Intent intent = new Intent(this,FragmentMain.class);
         startActivity(intent);
     }
     public void loginClick(View view){

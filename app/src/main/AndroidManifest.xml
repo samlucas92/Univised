@@ -57,11 +57,25 @@
                 android:value="com.mal.univised.successfulReg" />
         </activity>
         <activity
-            android:name=".NewReview"
-            android:parentActivityName=".NewReview" >
+            android:name=".FragmentMain"
+            android:parentActivityName=".FragmentMain" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mal.univised.NewReview" />
+                android:value="com.mal.univised.FragmentMain" />
+        </activity>
+        <activity
+            android:name=".FragmentPageActivity"
+            android:parentActivityName=".FragmentPageActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mal.univised.FragmentPageActivity" />
+        </activity>
+        <activity
+            android:name=".FinishActivity"
+            android:parentActivityName=".FinishActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mal.univised.FinishActivity" />
         </activity>
     </application>
 

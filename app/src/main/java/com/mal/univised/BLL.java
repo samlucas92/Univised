@@ -349,6 +349,22 @@ public class BLL extends SQLiteOpenHelper {
         database.close();
         return results;
     }
+    public ArrayList<String> universityName(){
+        ArrayList<String> result = new ArrayList<String>();
+        SQLiteDatabase database = this.getWritableDatabase();
+        String uniQuery ="SELECT name from Universities";
+        try{
+            Cursor cursor = database.rawQuery(uniQuery,null);
+            if(cursor.moveToFirst()){
+                do{
+                    result.add(cursor.getString(0));
+                }while (cursor.moveToNext());
+            }
+        }catch(Exception e){
+
+        }
+        return result;
+    }
     public int dbCount(){
         ArrayList<HashMap<String, String>> results = new ArrayList<HashMap<String, String>>();
         SQLiteDatabase database = this.getWritableDatabase();
@@ -361,8 +377,6 @@ public class BLL extends SQLiteOpenHelper {
             if(cursor.moveToFirst()){
 
                 do{
-
-
                     contactMap.put("rankId", cursor.getString(0));
                     contactMap.put("name", cursor.getString(1));
                     contactMap.put("location", cursor.getString(2));

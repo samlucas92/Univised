@@ -7,5 +7,10 @@
 
     <string name="title_activity_view_university">ViewUniversity</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="headerLabel">Select a University</string>
+    <string name="headerLabel2">Select Degree Type</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="commentLabel">Additional Comments</string>
+    <string name="questions">How would rate the</string>
+    <string name="finalText">You have completed your questionnaire, Thank you for your  Input.</string>
 </resources>
