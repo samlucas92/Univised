@@ -439,7 +439,6 @@ public class BLL extends SQLiteOpenHelper {
         System.out.println("result - " + testString);
         return testString;
     }
-
 }
 
 

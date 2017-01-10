@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    private String [] questions;
     public PlaceholderFragment() {
     }
 
@@ -38,17 +38,27 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        questions = getQuestions();
         View rootView = inflater.inflate(R.layout.fragment_layout, container, false);
         TextView textView = (TextView) rootView.findViewById(R.id.tv_label);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.imageView);
         TextView tv_question = (TextView) rootView.findViewById(R.id.tv__question);
         EditText et_answer = (EditText) rootView.findViewById(R.id.et_answer);
-        TextView tv_comments = (TextView) rootView.findViewById(R.id.tv_comments) ;
+        TextView tv_comments = (TextView) rootView.findViewById(R.id.tv_comments);
         EditText et_comments = (EditText) rootView.findViewById(R.id.et_comments);
-
-       // textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+        tv_question.setText(questions[getArguments().getInt(ARG_SECTION_NUMBER)]);
         return rootView;
     }
 
-
+    public String[] getQuestions(){
+        String [] question = {"How would you rate the cost of living?",
+                "How would you rate the universities accommodation?",
+                "How would you rate the night life?",
+                "How would you rate the university sporting events?",
+                "How would you rate the student union?",
+                "How would you rate the university facilities?",
+                "How would you rate the university lecturers?",
+                "How would you rate the university societies?"};
+        return question;
+    }
 }

@@ -18,27 +18,25 @@
         />
 
     <TextView
-
         android:textColor="#000"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
-        android:text="@string/questions"
         android:id="@+id/tv__question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:layout_marginTop="7dp"
-        android:inputType="text"
+        android:inputType="number"
         android:textColor="#000"
-        android:hint="Enter Your Answer"
+        android:hint="Enter Your Answer 1-5"
         android:id="@+id/et_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
         android:layout_marginTop="7dp"
-        android:textColor="#000"
+        android:textColor="#b3b3b5"
         android:textSize="20sp"
         android:text="@string/commentLabel"
         android:id="@+id/tv_comments"

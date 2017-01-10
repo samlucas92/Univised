@@ -1,15 +1,21 @@
 package com.mal.univised;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class FragmentPageActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -19,6 +25,7 @@ public class FragmentPageActivity extends AppCompatActivity implements View.OnCl
     private LinearLayout pager_indicator;
     private Button btnNext, btnFinish;
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    private String uni, degree;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -29,7 +36,9 @@ public class FragmentPageActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_page);
-
+        Bundle bundle = getIntent().getExtras();
+        uni = bundle.getString("data");
+        degree = bundle.getString("data2");
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
         btnFinish = (Button) findViewById(R.id.btn_finish);
@@ -46,41 +55,9 @@ public class FragmentPageActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
-        /*mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                Log.e("onPageScrolled","onPageScrolled");
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                Log.e("onPageSelected","onPageSelected");
-                for (int i = 0; i < dotsCount; i++) {
-                    dots[i].setImageDrawable(getResources().getDrawable(R.drawable.nonselecteditem_dot));
-                }
-
-                dots[position].setImageDrawable(getResources().getDrawable(R.drawable.selecteditem_dot));
-
-                if (position + 1 == dotsCount) {
-                    btnNext.setVisibility(View.GONE);
-                    btnFinish.setVisibility(View.VISIBLE);
-                } else {
-                    btnNext.setVisibility(View.VISIBLE);
-                    btnFinish.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                Log.e("onPageScrollStateChanged","onPageScrollStateChanged");
-            }
-        });*/
-
-
         setUiPageViewController();
         btnNext.setOnClickListener(this);
         btnFinish.setOnClickListener(this);
-
     }
 
     private void setUiPageViewController() {
@@ -126,6 +103,7 @@ public class FragmentPageActivity extends AppCompatActivity implements View.OnCl
                     btnNext.setVisibility(View.VISIBLE);
                     btnFinish.setVisibility(View.GONE);
                 }
+
                 break;
 
             case R.id.btn_finish:

@@ -61,6 +61,7 @@ public class FragmentMain extends AppCompatActivity implements AdapterView.OnIte
                 Intent i = new Intent(FragmentMain.this, FragmentPageActivity.class);
                 i.putExtra("data",String.valueOf(sp_degree.getSelectedItem()));
                 i.putExtra("data2",String.valueOf(sp_university.getSelectedItem()));
+
                 startActivity(i);
                 finish();
             }

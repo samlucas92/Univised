@@ -10,7 +10,7 @@
     <string name="headerLabel">Select a University</string>
     <string name="headerLabel2">Select Degree Type</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="commentLabel">Additional Comments</string>
+    <string name="commentLabel">Additional Comments (Optional)</string>
     <string name="questions">How would rate the</string>
-    <string name="finalText">You have completed your questionnaire, Thank you for your  Input.</string>
+    <string name="finalText">You have completed the questionnaire, thank you for your Input.</string>
 </resources>

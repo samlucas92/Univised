@@ -18,13 +18,14 @@ public class FinishActivity extends AppCompatActivity {
 
         btn_submit = (Button) findViewById(R.id.btn_finish);
 
-        btn_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(FinishActivity.this, MainActivity.class);
-                startActivity(i);
-            }
-        });
+//        btn_submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(FinishActivity.this, MainActivity.class);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
 
     }
 }
