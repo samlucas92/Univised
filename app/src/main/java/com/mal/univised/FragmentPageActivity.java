@@ -11,11 +11,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class FragmentPageActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,24 +29,26 @@ public class FragmentPageActivity extends AppCompatActivity implements View.OnCl
     private Button btnNext, btnFinish;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private String uni, degree;
+    private EditText score, answer;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
 
+    private PlaceholderFragment pf;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_page);
-        Bundle bundle = getIntent().getExtras();
-        uni = bundle.getString("data");
-        degree = bundle.getString("data2");
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
         btnFinish = (Button) findViewById(R.id.btn_finish);
         btnNext = (Button) findViewById(R.id.btn_next);
-
+        score = (EditText) findViewById(R.id.et_answer);
+        answer = (EditText) findViewById(R.id.et_comments);
+        pf = PlaceholderFragment.newInstance(0);
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -85,7 +90,7 @@ public class FragmentPageActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-
+        ArrayList<String> result = new ArrayList<String>();
         switch (view.getId()) {
             case R.id.btn_next:
                 mViewPager.setCurrentItem((mViewPager.getCurrentItem() < dotsCount)
@@ -103,12 +108,14 @@ public class FragmentPageActivity extends AppCompatActivity implements View.OnCl
                     btnNext.setVisibility(View.VISIBLE);
                     btnFinish.setVisibility(View.GONE);
                 }
-
+                pf.addIntents("next");
                 break;
 
             case R.id.btn_finish:
-                Intent i = new Intent(FragmentPageActivity.this, FinishActivity.class);
-                startActivity(i);
+                Intent intent = new Intent(FragmentPageActivity.this, FinishActivity.class);
+                result = pf.addIntents("finish");
+                intent.putStringArrayListExtra("results",result);
+                startActivity(intent);
                 //finish();
                 break;
         }

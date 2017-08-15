@@ -2,8 +2,10 @@ package com.mal.univised;
 
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by admin on 1/3/2017.
@@ -20,6 +25,7 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private String [] questions;
+
     public PlaceholderFragment() {
     }
 
@@ -34,6 +40,22 @@ public class PlaceholderFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+    public ArrayList<String> addIntents(String flag){
+
+        ArrayList<String> result = new ArrayList<>();
+        //EditText et_answer = (EditText) rootView.findViewById(R.id.et_answer);
+        //EditText et_comments = (EditText) rootView.findViewById(R.id.et_comments);
+
+        if(flag == "next"){
+            //result.add(et_answer.getText().toString());
+            //result.add(et_comments.getText().toString());
+            return null;
+        }
+
+        //result.add(et_answer.getText().toString());
+        //result.add(et_comments.getText().toString());
+        return result;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,6 +69,8 @@ public class PlaceholderFragment extends Fragment {
         TextView tv_comments = (TextView) rootView.findViewById(R.id.tv_comments);
         EditText et_comments = (EditText) rootView.findViewById(R.id.et_comments);
         tv_question.setText(questions[getArguments().getInt(ARG_SECTION_NUMBER)]);
+        et_answer.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "5")});
+        String ans = et_answer.getText().toString();
         return rootView;
     }
 
